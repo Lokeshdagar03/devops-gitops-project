@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("🚀 GitOps Demo using Helm + ArgoCD");
+    res.send("🚀 GitOps Demo - Version 2");
 });
 
 app.listen(3000, () => {
