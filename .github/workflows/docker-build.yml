@@ -1,0 +1,28 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWD }}
+
+      - name: Build Docker Image
+        run: |
+          docker build -t lokeshdagar/gitops-demo:${{ github.sha }} ./app
+
+      - name: Push Docker Image
+        run: |
+          docker push lokeshdagar/gitops-demo:${{ github.sha }}
