@@ -8,7 +8,7 @@ replicaCount: 2
 image:
   repository: lokeshdagar/gitops-demo
   pullPolicy: IfNotPresent
-  tag: "v1"
+  tag: "e5076b397abceb292eecc0576dc9fbc4b8015074"
 
    
 
